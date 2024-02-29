@@ -1,0 +1,36 @@
+<!-- <mvc:View controllerName="acrstartuiappnp.acrworkflowuimn.controller.App"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <App id="app">
+    </App>
+</mvc:View> -->
+<mvc:View
+    controllerName="acrstartuiappnp.acrworkflowuimn.controller.App"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:lib="akhil.comp.reuse.lib">
+
+    <!-- Title -->
+    <Page id="_IDGenPage1" title="My App">
+
+        <!-- Custom title content -->
+        <headerContent>
+            <!-- Image -->
+            <Image id="titleImage" src="path/to/your/image.png" />
+
+            <!-- Reuse control from shared library -->
+            <lib:controls.Reuse text="App2" />
+
+            <!-- Component container -->
+            <core:ComponentContainer id="_IDGenComponentContainer1" usage="reuse" manifest="true" async="true" />
+        </headerContent>
+
+        <!-- Page content -->
+        <content>
+            <!-- Add your main content here -->
+        </content>
+
+    </Page>
+</mvc:View>

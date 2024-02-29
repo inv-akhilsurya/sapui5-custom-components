@@ -1,0 +1,122 @@
+_schema-version: "3.2"
+ID: akhil-comp-reuse
+version: 0.0.1
+modules:
+- name: akhil-comp-reuse-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: akhil-comp-reuse-destination-service
+    parameters:
+      content-target: true
+  - name: akhil-comp-reuse_html_repo_host
+    parameters:
+      service-key:
+        name: akhil-comp-reuse_html_repo_host-key
+  - name: uaa_akhil-comp-reuse
+    parameters:
+      service-key:
+        name: uaa_akhil-comp-reuse-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: akhil_comp_reuse_apputer_akhil_comp_reuse_html_repo_host
+          ServiceInstanceName: akhil-comp-reuse-html5-app-host-service
+          ServiceKeyName: akhil-comp-reuse_html_repo_host-key
+          sap.cloud.service: akhil-comp-reuse-apputer
+        - Authentication: OAuth2UserTokenExchange
+          Name: akhil_comp_reuse_apputer_uaa_akhil_comp_reuse
+          ServiceInstanceName: akhil-comp-reuse-xsuaa-service
+          ServiceKeyName: uaa_akhil-comp-reuse-key
+          sap.cloud.service: akhil-comp-reuse-apputer
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: acrworkflowmn
+  type: com.sap.application.content
+  path: acrworkflowmn
+  requires:
+  - name: sap_processautomation
+    parameters:
+      content-target: true
+      service-key:
+        config:
+          deployUsageScenario: workflow
+        name: spa-workflow-service-key
+- name: akhil-comp-reuse-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: akhil-comp-reuse_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - acrstartuiappnpacrworkflowuimn.zip
+      name: acrstartuiappnpacrworkflowuimn
+      target-path: resources/
+    - artifacts:
+      - akhilcompreuselib.zip
+      name: akhilcompreuselib
+      target-path: resources/
+- name: acrstartuiappnpacrworkflowuimn
+  type: html5
+  path: acrworkflowuimn
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: akhilcompreuselib
+  type: html5
+  path: lib
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: akhil-comp-reuse-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: akhil-comp-reuse-destination-service
+    service-plan: lite
+- name: akhil-comp-reuse_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: akhil-comp-reuse-html5-app-host-service
+    service-plan: app-host
+- name: uaa_akhil-comp-reuse
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: akhil-comp-reuse-xsuaa-service
+    service-plan: application
+- name: sap_processautomation
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: process-automation-service
+    service-plan: standard
+parameters:
+  deploy_mode: html5-repo
