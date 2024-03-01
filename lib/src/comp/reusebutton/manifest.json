@@ -1,7 +1,7 @@
 {
     "_version": "1.32.0",
     "sap.app": {
-        "id": "akhil.comp.reuse.lib.comp.reuse",
+        "id": "akhil.comp.reuse.lib.comp.reusebutton",
         "type": "component",
         "i18n": "i18n/i18n.properties",
         "title": "{{appTitle}}",
@@ -14,7 +14,7 @@
 
     "sap.ui5": {
         "rootView": {
-            "viewName": "akhil.comp.reuse.lib.comp.reuse.view.Main",
+            "viewName": "akhil.comp.reuse.lib.comp.reusebutton.view.Main",
             "type": "XML",
             "async": true,
             "id": "main"

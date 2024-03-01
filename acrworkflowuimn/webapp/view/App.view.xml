@@ -13,7 +13,7 @@
     xmlns:lib="akhil.comp.reuse.lib">
 
     <!-- Title -->
-    <Page id="_IDGenPage1" title="My App">
+    <Page id="app" title="My App">
 
         <!-- Custom title content -->
         <headerContent>
@@ -24,7 +24,7 @@
             <lib:controls.Reuse text="App2" />
 
             <!-- Component container -->
-            <core:ComponentContainer id="_IDGenComponentContainer1" usage="reuse" manifest="true" async="true" />
+            <core:ComponentContainer id="_IDGenComponentContainer1" usage="reusebutton" manifest="true" async="true" />
         </headerContent>
 
         <!-- Page content -->

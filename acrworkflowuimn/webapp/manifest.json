@@ -61,7 +61,7 @@
         },
         "componentUsages": {
             "resuse": {
-                "name": "akhil.comp.reuse.lib.comp.reuse",
+                "name": "akhil.comp.reuse.lib.comp.reusebutton",
                 "settings": {},
                 "componentData": {},
                 "lazy": false

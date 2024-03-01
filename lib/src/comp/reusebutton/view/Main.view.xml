@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="akhil.comp.reuse.lib.comp.reuse.controller.Main"
+	controllerName="akhil.comp.reuse.lib.comp.reusebutton.controller.Main"
 	displayBlock="true"
 	height="100%"
 	xmlns="sap.m"
