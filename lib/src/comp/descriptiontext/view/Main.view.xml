@@ -1,0 +1,26 @@
+<mvc:View
+    controllerName="akhil.comp.reuse.lib.comp.descriptiontext.controller.Main"
+    displayBlock="true"
+    height="100%"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+>
+    <Page title="description test">
+        <content>
+            <VBox>
+                <!-- Description text -->
+
+                <!-- Input field and button -->
+                <FlexBox alignItems="Center">
+                    <Input id="inputField" placeholder="Enter your text" />
+                    <Button text="Submit" press="onSubmit" />
+                </FlexBox>
+
+                <!-- Placeholder for submitted text -->
+                <Text id="submittedText" visible="false" />
+                
+                <!-- Add your main content here -->
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

@@ -65,6 +65,12 @@
                 "settings": {},
                 "componentData": {},
                 "lazy": false
+            },
+            "descriptiontext": {
+                "name": "akhil.comp.reuse.lib.comp.descriptiontext",
+                "settings": {},
+                "componentData": {},
+                "lazy": false
             }
         },
         "contentDensities": {

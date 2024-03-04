@@ -8,7 +8,7 @@
         "applicationVersion": {
             "version": "1.0.0"
         },
-        "embeds":["comp/reusebutton"]
+        "embeds":["comp/reusebutton", "comp/descriptiontext"]
     },
 
     "sap.ui5": {
