@@ -18,7 +18,7 @@ modules:
         name: uaa_akhil-comp-reuse-key
   parameters:
     content:
-      instance:
+      subaccount:
         destinations:
         - Name: akhil_comp_reuse_apputer_akhil_comp_reuse_html_repo_host
           ServiceInstanceName: akhil-comp-reuse-html5-app-host-service
@@ -61,6 +61,10 @@ modules:
       - akhilcompreuselib.zip
       name: akhilcompreuselib
       target-path: resources/
+    - artifacts:
+      - acrapprovenpacrapprovemn.zip
+      name: acrapprovenpacrapprovemn
+      target-path: resources/
 - name: acrstartuiappnpacrworkflowuimn
   type: html5
   path: acrworkflowuimn
@@ -81,6 +85,16 @@ modules:
     - npm install
     - npm run build:cf
     supported-platforms: []
+- name: acrapprovenpacrapprovemn
+  type: html5
+  path: acrapprovemn
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
 resources:
 - name: akhil-comp-reuse-destination-service
   type: org.cloudfoundry.managed-service
@@ -88,7 +102,7 @@ resources:
     config:
       HTML5Runtime_enabled: true
       init_data:
-        instance:
+        subaccount:
           destinations:
           - Authentication: NoAuthentication
             Name: ui5
