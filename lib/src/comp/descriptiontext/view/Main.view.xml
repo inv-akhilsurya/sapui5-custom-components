@@ -4,23 +4,25 @@
     height="100%"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
 >
-    <Page title="description test">
-        <content>
-            <VBox>
-                <!-- Description text -->
+<VBox>
+    <Input
+        id="inputField"
+        placeholder="Enter your text"
+    />
+    <Button
+        text="Submit"
+        press="onSubmit"
+    />
 
-                <!-- Input field and button -->
-                <FlexBox alignItems="Center">
-                    <Input id="inputField" placeholder="Enter your text" />
-                    <Button text="Submit" press="onSubmit" />
-                </FlexBox>
-
-                <!-- Placeholder for submitted text -->
-                <Text id="submittedText" visible="false" />
-                
-                <!-- Add your main content here -->
-            </VBox>
-        </content>
-    </Page>
+    <Text
+        id="submittedText1"
+        text="eeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    />
+    <Text
+        id="submittedText"
+        visible="false"
+    />
+    </VBox>
 </mvc:View>
